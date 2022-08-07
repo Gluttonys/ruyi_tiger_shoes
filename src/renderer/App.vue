@@ -1,14 +1,14 @@
 <template>
-  <div id="app">
-    <Hello/>
-  </div>
+  <section class="flex">
+    <MessList/>
+    <MessageContent/>
+  </section>
 </template>
 
-
-
-<script setup lang="ts">
-import Hello from './components/Hello.vue'
-import { ipcRenderer } from './electron'
+<script lang="ts" setup>
+import {ipcRenderer} from './electron'
+import MessList from './components/MessList/index.vue'
+import MessageContent from './components/MessageContent/index.vue'
 
 ipcRenderer.send('message', 'Hello from App.vue!');
 </script>

@@ -1,4 +1,3 @@
-import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
 import {app, BrowserWindow, ipcMain} from 'electron';
 import {join} from 'path';
 
@@ -16,8 +15,7 @@ const createWindow = async () => {
   if (process.env.NODE_ENV === 'development') {
     const rendererPort = process.argv[2];
     await mainWindow.loadURL(`http://localhost:${rendererPort}`);
-  }
-  else {
+  } else {
     await mainWindow.loadFile(join(app.getAppPath(), 'renderer', 'index.html'));
   }
 }
